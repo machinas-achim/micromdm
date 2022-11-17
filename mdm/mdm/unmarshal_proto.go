@@ -114,6 +114,13 @@ func protoToCommand(pb *mdmproto.Command) *Command {
 	case "InstallEnterpriseApplication":
 		pbc := pb.GetInstallEnterpriseApplication()
 		var manifest *appmanifest.Manifest
+                var configuration *InstallEnterpriseApplicationConfiguration
+                var mgmt *int
+                mgmtFlags := nilIfZeroInt64(pbc.GetManagementFlags())
+                if mgmtFlags != nil {
+                        mgmti := int(*mgmtFlags)
+                        mgmt = &mgmti
+                }
 		if pbManifest := pbc.GetManifest(); pbManifest != nil {
 			manifest = &(appmanifest.Manifest{})
 			if pbManifestItems := pbManifest.GetManifestItems(); pbManifestItems != nil {
@@ -160,11 +167,20 @@ func protoToCommand(pb *mdmproto.Command) *Command {
 			}
 		}
 
+                pbconfig := pbc.GetConfiguration()
+                if pbconfig != nil {
+                        configuration = &InstallEnterpriseApplicationConfiguration{}
+                }
+
 		cmd.InstallEnterpriseApplication = &InstallEnterpriseApplication{
 			Manifest:                       manifest,
 			ManifestURL:                    nilIfEmptyString(pbc.GetManifestUrl()),
 			ManifestURLPinningCerts:        pbc.GetManifestUrlPinningCerts(),
 			PinningRevocationCheckRequired: nilIfFalse(pbc.GetPinningRevocationCheckRequired()),
+                        ManagementFlags:       		mgmt,
+                        ChangeManagementState: 		nilIfEmptyString(pbc.GetChangeManagementState()),
+                        InstallAsManaged:      		nilIfFalse(pbc.GetInstallAsManaged()),
+                        Configuration:         		configuration,
 		}
 	case "InstallApplication":
 		pbc := pb.GetInstallApplication()
@@ -205,6 +221,7 @@ func protoToCommand(pb *mdmproto.Command) *Command {
 			ManagementFlags:       mgmt,
 			ChangeManagementState: nilIfEmptyString(pbc.GetChangeManagementState()),
 			ManifestURL:           nilIfEmptyString(pbc.GetManifestUrl()),
+			InstallAsManaged:      nilIfFalse(pbc.GetInstallAsManaged()),
 			Options:               options,
 			Configuration:         configuration,
 			Attributes:            attributes,
