@@ -142,27 +142,29 @@ type EnableLostMode struct {
 }
 
 type InstallEnterpriseApplication struct {
+        ChangeManagementState          *string                                    `plist:",omitempty" json:"change_management_state,omitempty"`
+        Configuration                  *InstallEnterpriseApplicationConfiguration `plist:",omitempty" json:"configuration,omitempty"`
+        InstallAsManaged               *bool                                      `plist:",omitempty" json:"install_as_managed,omitempty"`
+        IosApp                         *bool                                      `plist:",omitempty" json:"ios_app,omitempty"`
+        ManagementFlags                *int                                       `plist:",omitempty" json:"management_flags,omitempty"`
 	Manifest                       *appmanifest.Manifest                      `plist:",omitempty" json:"manifest,omitempty"`
 	ManifestURL                    *string                                    `plist:",omitempty" json:"manifest_url,omitempty"`
 	ManifestURLPinningCerts        [][]byte                                   `plist:",omitempty" json:"manifest_url_pinning_certs,omitempty"`
 	PinningRevocationCheckRequired *bool                                      `plist:",omitempty" json:"pinning_revocation_check_required,omitempty"`
-	ChangeManagementState          *string                                    `plist:",omitempty" json:"change_management_state,omitempty"`
-	Configuration                  *InstallEnterpriseApplicationConfiguration `plist:",omitempty" json:"configuration,omitempty"`
-	InstallAsManaged               *bool                                      `plist:",omitempty" json:"install_as_managed,omitempty"`
-	ManagementFlags                *int                                       `plist:",omitempty" json:"management_flags,omitempty"`
 }
 type InstallEnterpriseApplicationConfiguration struct{}
 
 type InstallApplication struct {
+        Attributes            *InstallApplicationAttributes    `plist:",omitempty" json:"attributes,omitempty"`
+        ChangeManagementState *string                          `plist:",omitempty" json:"change_management_state,omitempty"`
+        Configuration         *InstallApplicationConfiguration `plist:",omitempty" json:"configuration,omitempty"`
+        Identifier            *string                          `plist:",omitempty" json:"identifier,omitempty"`
+        InstallAsManaged      *bool                            `plist:",omitempty" json:"install_as_managed,omitempty"`
+        IosApp                *bool                            `plist:",omitempty" json:"ios_app,omitempty"`
 	ITunesStoreID         *int64                           `plist:"iTunesStoreID,omitempty" json:"itunes_store_id,omitempty"`
-	Identifier            *string                          `plist:",omitempty" json:"identifier,omitempty"`
 	ManagementFlags       *int                             `plist:",omitempty" json:"management_flags,omitempty"`
-	ChangeManagementState *string                          `plist:",omitempty" json:"change_management_state,omitempty"`
 	ManifestURL           *string                          `plist:",omitempty" json:"manifest_url,omitempty"`
 	Options               *InstallApplicationOptions       `plist:"Options,omitempty" json:"options,omitempty"`
-	Configuration         *InstallApplicationConfiguration `plist:",omitempty" json:"configuration,omitempty"`
-	Attributes            *InstallApplicationAttributes    `plist:",omitempty" json:"attributes,omitempty"`
-	InstallAsManaged      *bool                            `plist:",omitempty" json:"install_as_managed,omitempty"`
 }
 
 type InstallApplicationOptions struct {

@@ -1534,6 +1534,7 @@ type InstallApplication struct {
 	Attributes            *InstallApplicationAttributes    `protobuf:"bytes,7,opt,name=attributes,proto3" json:"attributes,omitempty"`
 	ChangeManagementState string                           `protobuf:"bytes,8,opt,name=change_management_state,json=changeManagementState,proto3" json:"change_management_state,omitempty"`
 	InstallAsManaged      bool                             `protobuf:"varint,9,opt,name=install_as_managed,json=installAsManaged,proto3" json:"install_as_managed,omitempty"`
+        IosApp                bool                             `protobuf:"varint,10,opt,name=ios_app,json=iosApp,proto3" json:"ios_app,omitempty"`
 }
 
 func (x *InstallApplication) Reset() {
@@ -1629,6 +1630,13 @@ func (x *InstallApplication) GetInstallAsManaged() bool {
 		return x.InstallAsManaged
 	}
 	return false
+}
+
+func (x *InstallApplication) GetIosApp() bool {
+        if x != nil {
+                return x.IosApp
+        }
+        return false
 }
 
 type InstallApplicationOptions struct {
@@ -1767,6 +1775,7 @@ type InstallEnterpriseApplication struct {
 	ChangeManagementState          string                                     `protobuf:"bytes,6,opt,name=change_management_state,json=changeManagementState,proto3" json:"change_management_state,omitempty"`
 	InstallAsManaged               bool                                       `protobuf:"varint,7,opt,name=install_as_managed,json=installAsManaged,proto3" json:"install_as_managed,omitempty"`
 	ManagementFlags                int64                                      `protobuf:"varint,8,opt,name=management_flags,json=managementFlags,proto3" json:"management_flags,omitempty"`
+        IosApp                         bool                                       `protobuf:"varint,9,opt,name=ios_app,json=iosApp,proto3" json:"ios_app,omitempty"`
 }
 
 func (x *InstallEnterpriseApplication) Reset() {
@@ -1855,6 +1864,13 @@ func (x *InstallEnterpriseApplication) GetManagementFlags() int64 {
 		return x.ManagementFlags
 	}
 	return 0
+}
+
+func (x *InstallEnterpriseApplication) GetIosApp() bool {
+        if x != nil {
+                return x.IosApp
+        }
+        return false
 }
 
 type InstallEnterpriseApplicationConfiguration struct {

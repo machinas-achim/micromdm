@@ -208,6 +208,7 @@ func commandToProto(cmd *Command) (*mdmproto.Command, error) {
 				ChangeManagementState:          emptyStringIfNil(cmd.InstallEnterpriseApplication.ChangeManagementState),
 				InstallAsManaged:               falseIfNil(cmd.InstallEnterpriseApplication.InstallAsManaged),
 				ManagementFlags:                int64(zeroIntIfNil(cmd.InstallEnterpriseApplication.ManagementFlags)),
+                                IosApp:                         falseIfNil(cmd.InstallEnterpriseApplication.IosApp),
 			},
 		}
 	case "InstallApplication":
@@ -238,6 +239,7 @@ func commandToProto(cmd *Command) (*mdmproto.Command, error) {
 				Configuration:         configuration,
 				Attributes:            attributes,
 				InstallAsManaged:      falseIfNil(cmd.InstallApplication.InstallAsManaged),
+                                IosApp:                falseIfNil(cmd.InstallApplication.IosApp),
 			},
 		}
 	case "AccountConfiguration":

@@ -180,6 +180,7 @@ func protoToCommand(pb *mdmproto.Command) *Command {
                         ManagementFlags:       		mgmt,
                         ChangeManagementState: 		nilIfEmptyString(pbc.GetChangeManagementState()),
                         InstallAsManaged:      		nilIfFalse(pbc.GetInstallAsManaged()),
+                        IosApp:                         nilIfFalse(pbc.GetIosApp()),
                         Configuration:         		configuration,
 		}
 	case "InstallApplication":
@@ -222,6 +223,7 @@ func protoToCommand(pb *mdmproto.Command) *Command {
 			ChangeManagementState: nilIfEmptyString(pbc.GetChangeManagementState()),
 			ManifestURL:           nilIfEmptyString(pbc.GetManifestUrl()),
 			InstallAsManaged:      nilIfFalse(pbc.GetInstallAsManaged()),
+			IosApp:                nilIfFalse(pbc.GetIosApp()),
 			Options:               options,
 			Configuration:         configuration,
 			Attributes:            attributes,

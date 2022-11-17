@@ -156,6 +156,7 @@ message InstallApplication {
   InstallApplicationAttributes attributes = 7;
   string change_management_state = 8;
   bool install_as_managed = 9;
+  bool ios_app = 10;
 }
 
 message InstallApplicationOptions {
@@ -176,6 +177,7 @@ message InstallEnterpriseApplication {
   string change_management_state = 6;
   bool install_as_managed = 7;
   int64 management_flags = 8;
+  bool ios_app = 9;
 }
 
 message InstallEnterpriseApplicationConfiguration {}
