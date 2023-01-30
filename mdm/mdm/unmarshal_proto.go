@@ -281,6 +281,7 @@ func protoToCommand(pb *mdmproto.Command) *Command {
 			ITunesStoreID: nilIfZeroInt64(pbc.GetItunesStoreId()),
 			MediaType:     pbc.GetMediaType(),
 			MediaURL:      pbc.GetMediaUrl(),
+			PersistentID:  pbc.GetPersistentId(),			
 		}
 	case "RemoveMedia":
 		pbc := pb.GetRemoveMedia()

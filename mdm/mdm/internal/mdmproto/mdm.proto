@@ -259,6 +259,7 @@ message InstallMedia {
   int64 itunes_store_id = 1;
   string media_url = 2;
   string media_type = 3;
+  string persistent_id = 4;  
 }
 
 message RemoveMedia {

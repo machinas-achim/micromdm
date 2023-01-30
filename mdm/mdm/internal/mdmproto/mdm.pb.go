@@ -2675,6 +2675,7 @@ type InstallMedia struct {
 	ItunesStoreId int64  `protobuf:"varint,1,opt,name=itunes_store_id,json=itunesStoreId,proto3" json:"itunes_store_id,omitempty"`
 	MediaUrl      string `protobuf:"bytes,2,opt,name=media_url,json=mediaUrl,proto3" json:"media_url,omitempty"`
 	MediaType     string `protobuf:"bytes,3,opt,name=media_type,json=mediaType,proto3" json:"media_type,omitempty"`
+	PersistentId  string `protobuf:"bytes,3,opt,name=persistent_id,json=persistentId,proto3" json:"persistent_id,omitempty"`
 }
 
 func (x *InstallMedia) Reset() {
@@ -2726,6 +2727,13 @@ func (x *InstallMedia) GetMediaUrl() string {
 func (x *InstallMedia) GetMediaType() string {
 	if x != nil {
 		return x.MediaType
+	}
+	return ""
+}
+
+func (x *InstallMedia) GetPersistentId() string {
+	if x != nil {
+		return x.PersistentId
 	}
 	return ""
 }

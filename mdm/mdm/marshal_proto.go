@@ -301,6 +301,7 @@ func commandToProto(cmd *Command) (*mdmproto.Command, error) {
 				ItunesStoreId: zeroInt64IfNil(cmd.InstallMedia.ITunesStoreID),
 				MediaType:     cmd.InstallMedia.MediaType,
 				MediaUrl:      cmd.InstallMedia.MediaURL,
+				PersistentId:  cmd.InstallMedia.PersistentID,				
 			},
 		}
 	case "RemoveMedia":

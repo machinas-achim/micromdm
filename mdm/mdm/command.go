@@ -217,6 +217,7 @@ type InstallMedia struct {
 	ITunesStoreID *int64 `plist:"iTunesStoreID,omitempty" json:"itunes_store_id,omitempty"`
 	MediaURL      string `plist:",omitempty" json:"media_url,omitempty"`
 	MediaType     string `plist:",omitempty" json:"media_type,omitempty"`
+	PersistentID  string `plist:",omitempty" json:"persistent_id,omitempty"`
 }
 
 type RemoveMedia struct {
