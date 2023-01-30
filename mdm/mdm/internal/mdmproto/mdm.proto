@@ -260,6 +260,10 @@ message InstallMedia {
   string media_url = 2;
   string media_type = 3;
   string persistent_id = 4;  
+  string author = 5;  
+  string kind = 6;  
+  string title = 7;  
+  string version = 8;  
 }
 
 message RemoveMedia {

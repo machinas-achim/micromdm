@@ -302,6 +302,10 @@ func commandToProto(cmd *Command) (*mdmproto.Command, error) {
 				MediaType:     cmd.InstallMedia.MediaType,
 				MediaUrl:      cmd.InstallMedia.MediaURL,
 				PersistentId:  cmd.InstallMedia.PersistentID,				
+				Author:  	   cmd.InstallMedia.Author,				
+				Kind:  		   cmd.InstallMedia.Kind,				
+				Title:  	   cmd.InstallMedia.Title,				
+				Version:  	   cmd.InstallMedia.Version,				
 			},
 		}
 	case "RemoveMedia":

@@ -282,6 +282,10 @@ func protoToCommand(pb *mdmproto.Command) *Command {
 			MediaType:     pbc.GetMediaType(),
 			MediaURL:      pbc.GetMediaUrl(),
 			PersistentID:  pbc.GetPersistentId(),			
+			Author:  	   pbc.GetAuthor(),			
+			Kind:  		   pbc.GetKind(),			
+			Title:  	   pbc.GetTitle(),			
+			Version:  	   pbc.GetVersion(),			
 		}
 	case "RemoveMedia":
 		pbc := pb.GetRemoveMedia()

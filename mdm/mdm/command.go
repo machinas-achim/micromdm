@@ -218,6 +218,10 @@ type InstallMedia struct {
 	MediaURL      string `plist:",omitempty" json:"media_url,omitempty"`
 	MediaType     string `plist:",omitempty" json:"media_type,omitempty"`
 	PersistentID  string `plist:",omitempty" json:"persistent_id,omitempty"`
+	Author  	  string `plist:",omitempty" json:"author,omitempty"`
+	Kind  		  string `plist:",omitempty" json:"kind,omitempty"`
+	Title  		  string `plist:",omitempty" json:"title,omitempty"`
+	Version  	  string `plist:",omitempty" json:"version,omitempty"`
 }
 
 type RemoveMedia struct {
